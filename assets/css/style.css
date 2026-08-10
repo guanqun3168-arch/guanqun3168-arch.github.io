@@ -1,0 +1,298 @@
+/* 冠群建築師事務所 — 共用樣式
+   規則見 AGENTS.md：留白優先，不加陰影與漸層。手機 375px 優先。 */
+
+:root {
+  --color-ink: #1A0E0A;   /* 主色 */
+  --color-gold: #B8985F;  /* 輔色 */
+  --color-paper: #FAF6EE; /* 底色 */
+
+  --font-serif: "Noto Serif TC", "Avenir", "Songti TC", serif;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  --measure: 34rem;
+  --page-max: 68rem;
+}
+
+/* --- 基礎 --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 0.1em;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-gold);
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: 1.5rem; letter-spacing: 0.06em; }
+h2 { font-size: 1.125rem; letter-spacing: 0.06em; }
+h3 { font-size: 1rem; }
+
+p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+}
+
+/* --- 版面 --- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+
+.section {
+  padding: var(--space-5) 0;
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
+}
+
+.pending {
+  color: var(--color-gold);
+}
+
+/* --- 頁首 --- */
+
+.site-header {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(26, 14, 10, 0.12);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.site-title {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  margin: 0;
+}
+
+.site-title a {
+  border-bottom: none;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.site-nav a {
+  border-bottom: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-gold);
+}
+
+/* --- 首頁主視覺 --- */
+
+.hero {
+  padding: var(--space-5) 0 var(--space-4);
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  line-height: 1.7;
+  max-width: var(--measure);
+}
+
+.hero .lede {
+  color: rgba(26, 14, 10, 0.75);
+}
+
+/* --- 作品列表 --- */
+
+.work-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.work-item {
+  border-top: 1px solid rgba(26, 14, 10, 0.12);
+  padding: var(--space-3) 0;
+}
+
+.work-item:last-child {
+  border-bottom: 1px solid rgba(26, 14, 10, 0.12);
+}
+
+.work-item a {
+  border-bottom: none;
+  display: block;
+}
+
+.work-item h2 {
+  margin-bottom: var(--space-1);
+}
+
+.work-meta {
+  font-size: 0.8125rem;
+  color: rgba(26, 14, 10, 0.6);
+  margin: 0;
+}
+
+.work-thumb {
+  margin-top: var(--space-2);
+}
+
+/* --- 作品內頁 --- */
+
+.work-facts {
+  margin: var(--space-3) 0 var(--space-4);
+  border-top: 1px solid rgba(26, 14, 10, 0.12);
+}
+
+.work-facts div {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid rgba(26, 14, 10, 0.12);
+  font-size: 0.875rem;
+}
+
+.work-facts dt {
+  flex: 0 0 5.5rem;
+  margin: 0;
+  color: rgba(26, 14, 10, 0.6);
+}
+
+.work-facts dd {
+  margin: 0;
+}
+
+.work-figures figure {
+  margin: 0 0 var(--space-3);
+}
+
+.work-figures figcaption {
+  font-size: 0.8125rem;
+  color: rgba(26, 14, 10, 0.6);
+  margin-top: var(--space-1);
+}
+
+.img-placeholder {
+  border: 1px solid rgba(26, 14, 10, 0.2);
+  padding: var(--space-4) var(--space-2);
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-gold);
+}
+
+/* --- 聯絡 --- */
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-list li {
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid rgba(26, 14, 10, 0.12);
+  font-size: 0.9375rem;
+}
+
+.contact-list span {
+  display: inline-block;
+  min-width: 5.5rem;
+  color: rgba(26, 14, 10, 0.6);
+}
+
+/* --- 頁尾 --- */
+
+.site-footer {
+  border-top: 1px solid rgba(26, 14, 10, 0.12);
+  padding: var(--space-3) 0 var(--space-4);
+  font-size: 0.8125rem;
+  color: rgba(26, 14, 10, 0.6);
+}
+
+.site-footer p {
+  margin: 0 0 var(--space-1);
+}
+
+/* --- 桌機（次要） --- */
+
+@media (min-width: 48rem) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .wrap {
+    padding: 0 var(--space-4);
+  }
+
+  .section {
+    padding: var(--space-6) 0;
+  }
+
+  h1 { font-size: 1.875rem; }
+  .hero h1 { font-size: 2.25rem; }
+
+  .site-header .wrap {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .work-facts {
+    max-width: var(--measure);
+  }
+}
