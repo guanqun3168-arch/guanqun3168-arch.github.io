@@ -239,19 +239,33 @@ p {
 
 .contact-list {
   list-style: none;
-  margin: 0;
+  margin: 0 0 var(--space-4);
   padding: 0;
+  max-width: var(--measure);
+}
+
+main h2 {
+  margin-top: var(--space-4);
+}
+
+main h2:first-of-type {
+  margin-top: 0;
 }
 
 .contact-list li {
-  padding: var(--space-1) 0;
+  padding: var(--space-2) 0;
   border-bottom: 1px solid rgba(26, 14, 10, 0.12);
   font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.contact-list li:first-child {
+  border-top: 1px solid rgba(26, 14, 10, 0.12);
 }
 
 .contact-list span {
   display: inline-block;
-  min-width: 5.5rem;
+  min-width: 6rem;
   color: rgba(26, 14, 10, 0.6);
 }
 
