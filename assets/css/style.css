@@ -632,6 +632,7 @@ main h2:first-of-type {
 .contact-list span {
   display: inline-block;
   min-width: 6rem;
+  padding-right: var(--space-2);
   color: rgba(26, 14, 10, 0.6);
 }
 
