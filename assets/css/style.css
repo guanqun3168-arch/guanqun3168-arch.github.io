@@ -36,9 +36,9 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-serif);
-  font-size: 1rem;
-  line-height: 1.9;
-  letter-spacing: 0.02em;
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
 }
 
 img {
@@ -61,13 +61,28 @@ a:focus {
 
 h1, h2, h3 {
   font-weight: 500;
-  line-height: 1.5;
   margin: 0 0 var(--space-2);
 }
 
-h1 { font-size: 1.5rem; letter-spacing: 0.06em; }
-h2 { font-size: 1.125rem; letter-spacing: 0.06em; }
-h3 { font-size: 1rem; }
+/* 級距刻意拉開，讓主次一眼分得出來 */
+h1 {
+  font-size: 2rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+h2 {
+  font-size: 1.375rem;
+  line-height: 1.55;
+  letter-spacing: 0.07em;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
 
 p {
   margin: 0 0 var(--space-2);
@@ -88,11 +103,12 @@ p {
 }
 
 .label {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  letter-spacing: 0.26em;
   color: var(--color-gold);
   text-transform: uppercase;
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-1);
 }
 
 .pending {
@@ -113,8 +129,8 @@ p {
 }
 
 .site-title {
-  font-size: 1rem;
-  letter-spacing: 0.12em;
+  font-size: 0.9375rem;
+  letter-spacing: 0.16em;
   margin: 0;
 }
 
@@ -130,7 +146,8 @@ p {
   gap: var(--space-3);
   margin: 0;
   padding: 0;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
 }
 
 .site-nav a {
@@ -175,15 +192,18 @@ p {
 
 .cover h1 {
   color: var(--color-paper);
-  font-size: 1.75rem;
-  line-height: 1.6;
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-bottom: var(--space-2);
   max-width: var(--measure);
 }
 
 .cover .lede {
-  color: rgba(250, 246, 238, 0.88);
+  color: rgba(250, 246, 238, 0.85);
+  font-size: 0.875rem;
+  line-height: 1.9;
   margin: 0;
-  max-width: var(--measure);
+  max-width: 30rem;
 }
 
 .cover + .section {
@@ -219,7 +239,7 @@ p {
 }
 
 .work-meta {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: rgba(26, 14, 10, 0.6);
   margin: 0;
 }
@@ -239,8 +259,9 @@ p {
   cursor: pointer;
   padding: var(--space-3) 2rem var(--space-3) 0;
   position: relative;
-  font-size: 1.125rem;
-  letter-spacing: 0.06em;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  letter-spacing: 0.07em;
 }
 
 .cat > summary::-webkit-details-marker {
@@ -335,6 +356,7 @@ p {
 
 .rail-track figcaption {
   font-size: 0.8125rem;
+  letter-spacing: 0.06em;
   color: rgba(26, 14, 10, 0.6);
   margin-top: var(--space-1);
 }
@@ -477,8 +499,9 @@ p {
 }
 
 .related-grid .tag {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
   color: var(--color-gold);
   margin: 0;
 }
@@ -570,7 +593,7 @@ p {
   gap: var(--space-2);
   padding: var(--space-1) 0;
   border-bottom: 1px solid rgba(26, 14, 10, 0.12);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 
 .work-facts dt {
@@ -622,6 +645,7 @@ main h2:first-of-type {
   padding: var(--space-2) 0;
   border-bottom: 1px solid rgba(26, 14, 10, 0.12);
   font-size: 0.9375rem;
+  letter-spacing: 0.04em;
   line-height: 1.7;
 }
 
@@ -653,8 +677,10 @@ main h2:first-of-type {
 
 .site-footer {
   border-top: 1px solid rgba(26, 14, 10, 0.12);
-  padding: var(--space-3) 0 var(--space-4);
-  font-size: 0.8125rem;
+  padding: var(--space-4) 0 var(--space-5);
+  font-size: 0.75rem;
+  line-height: 2;
+  letter-spacing: 0.06em;
   color: rgba(26, 14, 10, 0.6);
 }
 
@@ -666,7 +692,7 @@ main h2:first-of-type {
 
 @media (min-width: 48rem) {
   body {
-    font-size: 1.0625rem;
+    font-size: 1rem;
   }
 
   .wrap {
@@ -677,13 +703,18 @@ main h2:first-of-type {
     padding: var(--space-6) 0;
   }
 
-  h1 { font-size: 1.875rem; }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.0625rem; }
+
+  .cat > summary { font-size: 1.5rem; }
 
   .cover {
     min-height: 34rem;
   }
 
-  .cover h1 { font-size: 2.5rem; }
+  .cover h1 { font-size: 3.25rem; }
+  .cover .lede { font-size: 0.9375rem; }
 
   .cover-inner {
     padding: var(--space-5) 0;
