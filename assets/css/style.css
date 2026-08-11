@@ -140,27 +140,60 @@ p {
   color: var(--color-gold);
 }
 
-/* --- 首頁主視覺 --- */
+/* --- 首頁封面 --- */
 
-.hero {
-  padding: var(--space-5) 0 var(--space-4);
+.cover {
+  position: relative;
+  width: 100%;
+  min-height: 26rem;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
 }
 
-.hero h1 {
+.cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 純色半透明遮罩，不使用漸層。目的是讓疊在圖上的文字讀得清楚。 */
+.cover-veil {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(26, 14, 10, 0.5);
+}
+
+.cover-inner {
+  position: relative;
+  width: 100%;
+  padding: var(--space-4) 0;
+}
+
+.cover h1 {
+  color: var(--color-paper);
   font-size: 1.75rem;
-  line-height: 1.7;
+  line-height: 1.6;
   max-width: var(--measure);
 }
 
-.hero .lede {
-  color: rgba(26, 14, 10, 0.75);
+.cover .lede {
+  color: rgba(250, 246, 238, 0.88);
+  margin: 0;
+  max-width: var(--measure);
+}
+
+.cover + .section {
+  padding-top: var(--space-4);
 }
 
 /* --- 作品列表 --- */
 
 .work-list {
   list-style: none;
-  margin: 0;
+  margin: 0 0 var(--space-4);
   padding: 0;
 }
 
@@ -178,14 +211,81 @@ p {
   display: block;
 }
 
-.work-item h2 {
+.work-item h3 {
   margin-bottom: var(--space-1);
+  font-size: 1.0625rem;
+  letter-spacing: 0.04em;
 }
 
 .work-meta {
   font-size: 0.8125rem;
   color: rgba(26, 14, 10, 0.6);
   margin: 0;
+}
+
+/* --- 作品類別（可展開收起） --- */
+
+.cat {
+  border-top: 1px solid rgba(26, 14, 10, 0.12);
+}
+
+.cat:last-of-type {
+  border-bottom: 1px solid rgba(26, 14, 10, 0.12);
+}
+
+.cat > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--space-3) 2rem var(--space-3) 0;
+  position: relative;
+  font-size: 1.125rem;
+  letter-spacing: 0.06em;
+}
+
+.cat > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 箭頭：用邊框畫一個 V 形，不引入圖示套件 */
+.cat > summary::after {
+  content: "";
+  position: absolute;
+  right: 0.375rem;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: -0.375rem;
+  border-right: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.cat[open] > summary::after {
+  transform: rotate(-135deg);
+  margin-top: -0.125rem;
+}
+
+.cat > summary:hover,
+.cat > summary:focus-visible {
+  color: var(--color-gold);
+}
+
+.cat .work-list {
+  margin-bottom: var(--space-2);
+}
+
+.cat .work-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.cat .work-item:last-child {
+  border-bottom: none;
+}
+
+.cat-empty {
+  padding-bottom: var(--space-3);
 }
 
 .work-thumb {
@@ -269,6 +369,19 @@ main h2:first-of-type {
   color: rgba(26, 14, 10, 0.6);
 }
 
+.map-embed {
+  max-width: var(--measure);
+  margin: 0 0 var(--space-2);
+  border: 1px solid rgba(26, 14, 10, 0.12);
+}
+
+.map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+
 /* --- 頁尾 --- */
 
 .site-footer {
@@ -298,7 +411,16 @@ main h2:first-of-type {
   }
 
   h1 { font-size: 1.875rem; }
-  .hero h1 { font-size: 2.25rem; }
+
+  .cover {
+    min-height: 34rem;
+  }
+
+  .cover h1 { font-size: 2.5rem; }
+
+  .cover-inner {
+    padding: var(--space-5) 0;
+  }
 
   .site-header .wrap {
     flex-direction: row;

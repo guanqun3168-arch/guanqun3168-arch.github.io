@@ -25,8 +25,15 @@
 
 2. 把 `works/example-project/index.html` 複製一份到新資料夾裡，檔名一樣叫 `index.html`。
 
-3. 圖片先壓縮（長邊建議不超過 2000px，單張不超過 500KB），放進 `assets/img/`，
-   檔名也用英文小寫，例：`nanhai-house-01.jpg`。
+3. 圖片用 `tools/photo-style.py` 處理，它會自動壓縮、縮圖並套上事務所的統一色調：
+
+   ```
+   python photo-style.py 原始照片.jpg h88-temple-02
+   python photo-style.py 原始照片.jpg cover --cover
+   ```
+
+   處理好的檔案會自動存進 `assets/img/`。
+   **不要用其他軟體調色**，色調會不一致。第一次使用要先裝套件：`pip install pillow numpy`
 
 4. 打開新資料夾裡的 `index.html`，把這些地方換掉：
    - `<title>` 裡的案名

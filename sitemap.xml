@@ -11,11 +11,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://guanqun3168-arch.github.io/works/h88-temple/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://guanqun3168-arch.github.io/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
