@@ -36,7 +36,7 @@
     "closes": "18:00"
   },
   "email": "w553.w788@msa.hinet.net",
-  "image": "https://guanqun3168-arch.github.io/assets/img/h88-temple-01.jpg",
+  "image": "https://guanqun3168-arch.github.io/assets/img/cover.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "澄清路129巷1號",
@@ -57,10 +57,19 @@
         <li><a href="about.html">關於</a></li>
         <li><a href="works/index.html">作品</a></li>
         <li><a href="contact.html">聯絡</a></li>
+        <li><button class="search-toggle" type="button" aria-expanded="false" aria-controls="search-panel" aria-label="搜尋" hidden><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"></circle><line x1="13.5" y1="13.5" x2="18" y2="18"></line></svg></button></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<div class="search-panel" id="search-panel" data-depth="" hidden>
+  <div class="wrap">
+    <input type="search" placeholder="搜尋網站內容" aria-label="搜尋網站內容">
+    <p class="search-note"></p>
+    <ul class="search-results"></ul>
+  </div>
+</div>
 
 <main>
 
@@ -82,9 +91,33 @@
       <p class="label">Works</p>
       <h2>近期作品</h2>
 
-      <p class="pending">作品陸續整理中。</p>
+      <div class="rail">
+        <ul class="rail-track">
+          <li>
+            <a href="works/temple-01/index.html">
+              <figure>
+                <img src="assets/img/cover.jpg" alt="廟宇山門，三重簷藍瓦屋頂，前方為松樹與草坪">
+                <figcaption>寺廟設計 01</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li>
+            <a href="works/temple-02/index.html">
+              <figure>
+                <div class="img-placeholder">照片待補</div>
+                <figcaption>寺廟設計 02</figcaption>
+              </figure>
+            </a>
+          </li>
+        </ul>
+        <div class="rail-ctrl">
+            <button type="button" class="rail-prev" data-rail="prev">Prev</button>
+            <div class="rail-dots" aria-hidden="true"></div>
+            <button type="button" class="rail-next" data-rail="next">Next</button>
+          </div>
+      </div>
 
-      <p><a href="works/index.html">看全部作品</a></p>
+      <p style="margin-top:1.5rem;"><a href="works/index.html">看全部作品</a></p>
     </div>
   </section>
 
@@ -110,6 +143,7 @@
   </div>
 </footer>
 
+<script src="assets/js/search-index.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

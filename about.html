@@ -18,10 +18,19 @@
         <li><a href="about.html">關於</a></li>
         <li><a href="works/index.html">作品</a></li>
         <li><a href="contact.html">聯絡</a></li>
+        <li><button class="search-toggle" type="button" aria-expanded="false" aria-controls="search-panel" aria-label="搜尋" hidden><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"></circle><line x1="13.5" y1="13.5" x2="18" y2="18"></line></svg></button></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<div class="search-panel" id="search-panel" data-depth="" hidden>
+  <div class="wrap">
+    <input type="search" placeholder="搜尋網站內容" aria-label="搜尋網站內容">
+    <p class="search-note"></p>
+    <ul class="search-results"></ul>
+  </div>
+</div>
 
 <main>
   <section class="section">
@@ -66,6 +75,7 @@
   </div>
 </footer>
 
+<script src="assets/js/search-index.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

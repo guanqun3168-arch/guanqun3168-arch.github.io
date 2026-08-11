@@ -16,7 +16,7 @@
   --space-6: 6rem;
 
   --measure: 34rem;
-  --page-max: 68rem;
+  --page-max: 60rem;
 }
 
 /* --- 基礎 --- */
@@ -126,6 +126,7 @@ p {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-3);
   margin: 0;
   padding: 0;
@@ -271,21 +272,286 @@ p {
   color: var(--color-gold);
 }
 
-.cat .work-list {
-  margin-bottom: var(--space-2);
+.cat-body {
+  padding-bottom: var(--space-3);
 }
 
-.cat .work-item:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.cat .work-item:last-child {
-  border-bottom: none;
+.cat-body p {
+  max-width: var(--measure);
 }
 
 .cat-empty {
   padding-bottom: var(--space-3);
+}
+
+/* --- 橫向輪播（作品類別內的案例列、個案頁的照片列） --- */
+
+.rail {
+  position: relative;
+}
+
+.rail-track {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--space-2);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.rail-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rail-track > li {
+  flex: 0 0 78%;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 40rem) {
+  .rail-track > li {
+    flex-basis: 46%;
+  }
+}
+
+@media (min-width: 60rem) {
+  .rail-track > li {
+    flex-basis: 31%;
+  }
+}
+
+.rail-track figure {
+  margin: 0;
+}
+
+.rail-track img {
+  width: 100%;
+  display: block;
+}
+
+.rail-track figcaption {
+  font-size: 0.8125rem;
+  color: rgba(26, 14, 10, 0.6);
+  margin-top: var(--space-1);
+}
+
+.rail-track a {
+  border-bottom: none;
+  display: block;
+}
+
+/* 控制列 */
+
+/* 左：Prev / Next　中：進度圓點　右：留空，讓圓點落在正中央 */
+.rail-ctrl {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+}
+
+.rail-prev { justify-self: start; }
+.rail-next { justify-self: end; }
+
+.rail-ctrl button {
+  font: inherit;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-ink);
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 箭頭用邊框畫成 V 形，不引入圖示套件 */
+.rail-ctrl button::before,
+.rail-ctrl button::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  flex: none;
+}
+
+.rail-prev::before {
+  transform: rotate(-135deg);
+}
+
+.rail-prev::after,
+.rail-next::before {
+  display: none;
+}
+
+.rail-next::after {
+  transform: rotate(45deg);
+}
+
+.rail-ctrl button:hover:not(:disabled) {
+  color: var(--color-gold);
+}
+
+.rail-ctrl button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.rail-dots {
+  display: flex;
+  gap: 0.375rem;
+  justify-self: center;
+}
+
+.rail-dots span {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: rgba(26, 14, 10, 0.2);
+}
+
+.rail-dots span[data-on] {
+  background: var(--color-gold);
+}
+
+/* --- 個案頁 --- */
+
+.case-hero {
+  margin: 0 0 var(--space-4);
+}
+
+.case-hero img {
+  width: 100%;
+  display: block;
+}
+
+.case-text {
+  margin-bottom: var(--space-5);
+}
+
+/* --- 相關內容 --- */
+
+.related {
+  border-top: 1px solid rgba(26, 14, 10, 0.12);
+  padding-top: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.related-grid {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 34rem) {
+  .related-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.related-grid a {
+  border-bottom: none;
+  display: block;
+}
+
+.related-grid img {
+  width: 100%;
+  display: block;
+}
+
+.related-grid p {
+  margin: var(--space-1) 0 0;
+  font-size: 0.9375rem;
+}
+
+.related-grid .tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+/* --- 站內搜尋 --- */
+
+.search-toggle {
+  background: none;
+  border: none;
+  color: var(--color-ink);
+  cursor: pointer;
+  padding: 0;
+  display: block;
+  line-height: 0;
+}
+
+.search-toggle svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  vertical-align: middle;
+}
+
+.search-toggle:hover,
+.search-toggle[aria-expanded="true"] {
+  color: var(--color-gold);
+}
+
+.search-panel {
+  border-bottom: 1px solid rgba(26, 14, 10, 0.12);
+  padding: var(--space-2) 0;
+}
+
+.search-panel[hidden] {
+  display: none;
+}
+
+.search-panel input {
+  font: inherit;
+  font-family: var(--font-serif);
+  width: 100%;
+  max-width: var(--measure);
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(26, 14, 10, 0.3);
+  padding: 0.375rem 0;
+  color: var(--color-ink);
+}
+
+.search-panel input:focus {
+  outline: none;
+  border-bottom-color: var(--color-gold);
+}
+
+.search-results {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  max-width: var(--measure);
+}
+
+.search-results li {
+  padding: var(--space-1) 0;
+  font-size: 0.9375rem;
+}
+
+.search-note {
+  font-size: 0.8125rem;
+  color: rgba(26, 14, 10, 0.6);
+  margin: var(--space-1) 0 0;
 }
 
 .work-thumb {

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>作品｜冠群建築師事務所</title>
-<meta name="description" content="冠群建築師事務所作品案例，分為寺廟設計、廠房與辦公室、住宅設計、其他建築四個類別。">
+<meta name="description" content="冠群建築師事務所作品，分為寺廟設計、廠房與辦公室、住宅設計、其他建築四個類別。">
 <link rel="canonical" href="https://guanqun3168-arch.github.io/works/">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -16,12 +16,21 @@
     <nav class="site-nav" aria-label="主選單">
       <ul>
         <li><a href="../about.html">關於</a></li>
-        <li><a href="index.html">作品</a></li>
+        <li><a href="../works/index.html">作品</a></li>
         <li><a href="../contact.html">聯絡</a></li>
+        <li><button class="search-toggle" type="button" aria-expanded="false" aria-controls="search-panel" aria-label="搜尋" hidden><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"></circle><line x1="13.5" y1="13.5" x2="18" y2="18"></line></svg></button></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<div class="search-panel" id="search-panel" data-depth="../" hidden>
+  <div class="wrap">
+    <input type="search" placeholder="搜尋網站內容" aria-label="搜尋網站內容">
+    <p class="search-note"></p>
+    <ul class="search-results"></ul>
+  </div>
+</div>
 
 <main>
   <section class="section">
@@ -29,28 +38,66 @@
       <p class="label">Works</p>
       <h1>作品</h1>
 
-      <!-- 每個類別是一個 <details>，點標題就能展開收起，不需要 JavaScript。
-           加 open 屬性代表預設展開。
-           新增案子：複製一個 <li class="work-item">，放進對應類別的 <ul> 裡。 -->
+      <!-- 每個類別 = 設計觀點 + 案例橫向列。點案例進入個案頁。
+           新增案例：在對應類別的 <ul class="rail-track"> 裡複製一個 <li>，
+           並在 works/ 底下建同名資料夾，複製一份個案頁改內容。
+           案名一律不顯示，標題用「類別 + 流水號」。 -->
 
       <details class="cat" open>
         <summary>寺廟設計</summary>
-        <p class="pending cat-empty">作品陸續整理中。</p>
+        <div class="cat-body">
+          <p class="pending">設計觀點待補。</p>
+
+          <div class="rail">
+            <ul class="rail-track">
+              <li>
+                <a href="temple-01/index.html">
+                  <figure>
+                    <img src="../assets/img/cover.jpg" alt="廟宇山門，三重簷藍瓦屋頂，前方為松樹與草坪">
+                    <figcaption>寺廟設計 01</figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="temple-02/index.html">
+                  <figure>
+                    <div class="img-placeholder">照片待補</div>
+                    <figcaption>寺廟設計 02</figcaption>
+                  </figure>
+                </a>
+              </li>
+            </ul>
+            <div class="rail-ctrl">
+            <button type="button" class="rail-prev" data-rail="prev">Prev</button>
+            <div class="rail-dots" aria-hidden="true"></div>
+            <button type="button" class="rail-next" data-rail="next">Next</button>
+          </div>
+          </div>
+        </div>
       </details>
 
       <details class="cat">
         <summary>廠房／辦公室</summary>
-        <p class="pending cat-empty">作品陸續整理中。</p>
+        <div class="cat-body">
+          <p class="pending">設計觀點待補。</p>
+          <p class="pending">案例陸續整理中。</p>
+        </div>
       </details>
 
       <details class="cat">
         <summary>住宅設計</summary>
-        <p class="pending cat-empty">作品陸續整理中。</p>
+        <div class="cat-body">
+          <p class="pending">設計觀點待補。</p>
+          <p class="pending">案例陸續整理中。</p>
+        </div>
       </details>
 
       <details class="cat">
         <summary>其他建築</summary>
-        <p class="pending cat-empty">作品陸續整理中。</p>
+        <div class="cat-body">
+          <p class="pending">設計觀點待補。</p>
+          <p class="pending">案例陸續整理中。</p>
+        </div>
       </details>
 
     </div>
@@ -67,6 +114,7 @@
   </div>
 </footer>
 
+<script src="../assets/js/search-index.js"></script>
 <script src="../assets/js/main.js"></script>
 </body>
 </html>
